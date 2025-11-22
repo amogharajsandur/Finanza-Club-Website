@@ -1,17 +1,19 @@
 import React from 'react';
 
 function AboutSection() {
-    {/* About Section */}
     return (
         <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
-            <h2 className="text-3xl font-bold mb-2">About <span className="text-3xl font-bold text-[#C0003D] mb-6">Finanza</span></h2>
-            {/* <span className="text-4xl font-bold text-[#C0003D] mb-6">Finanza</span> */}
-            <div className="text-gray-700 leading-relaxed space-y-4">
-                <p>
-                    Lorem ipsum dolor sit amet consectetur. Nec sollicitudin feugiat sed vel sit. Rhoncus nec in sollicitudin feugiat sed turpis ut arcu non risus. At tortor placerat at dignissim aliquet. Et facilisi vivamus diam quam interdum placerat non lobortis velit scelerisque. Eget venenatis sed vel sit sed. Ipsum sollicitudin feugiat lobortis lacinia. Tempor morbi bibendum pharetra velit turpis scelerisque sed. Sed habitasse viverra purus.
+            <div className="mb-8">
+                <h2 className="text-3xl font-bold text-[#C0003D] mb-2">About</h2>
+                <h2 className="text-5xl font-bold text-[#C0003D]">Finanza</h2>
+            </div>
+
+            <div className="text-gray-700 leading-relaxed space-y-6 max-w-4xl">
+                <p className="text-lg">
+                    The Finance Club at Rishihood University is a student-led initiative dedicated to fostering financial literacy and investment acumen among students. We provide a platform for students to learn, discuss, and apply financial concepts in real-world scenarios.
                 </p>
-                <p>
-                    Ultrices facilisi quis sem integer sem orci. Morbi sit tortor. Ultrices feugiat imperdiet lectis. Eget rhoncus non gravit placerat.
+                <p className="text-lg">
+                    Our mission is to bridge the gap between theoretical knowledge and practical application through workshops, guest lectures, competitions, and hands-on projects. Join us to explore the dynamic world of finance.
                 </p>
             </div>
         </section>
