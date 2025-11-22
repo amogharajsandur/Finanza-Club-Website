@@ -1,71 +1,126 @@
+import { useState, useEffect } from 'react';
+
 export default function Events() {
-  const events = [
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const heroSlides = [
     {
-      title: "Investment 101 Workshop",
-      date: "November 12, 2025",
-      description: "Learn the fundamentals of investing, portfolio management, and risk assessment.",
-      time: "4:00 PM - 6:00 PM",
-      location: "Finance Building, Room 201"
+      title: "Student Loan",
+      subtitle: "Guest visit by Guest name",
+      image: "https://images.unsplash.com/photo-1523240795612-9a054b0db644?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      title: "Crypto & Future of Money",
-      date: "November 20, 2025",
-      description: "Explore the world of cryptocurrencies and their impact on traditional finance.",
-      time: "3:00 PM - 5:00 PM",
-      location: "Business School, Room 150"
+      title: "Market Trends",
+      subtitle: "Expert analysis by John Doe",
+      image: "https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?q=80&w=2070&auto=format&fit=crop"
     },
     {
-      title: "Finance Quiz Night",
-      date: "November 25, 2025",
-      description: "Test your financial knowledge in a fun and competitive environment.",
-      time: "6:00 PM - 8:00 PM",
-      location: "Student Center, Main Hall"
-    },
+      title: "Crypto Future",
+      subtitle: "Workshop with Jane Smith",
+      image: "https://images.unsplash.com/photo-1518546305927-5a555bb7020d?q=80&w=2069&auto=format&fit=crop"
+    }
   ];
 
-  return (
-    <section className="container mx-auto px-4 py-12">
-      <h2 className="text-4xl font-bold mb-4 text-center" style={{ color: '#C0003D' }}>Upcoming Events</h2>
-      <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-        Join us for our upcoming events designed to enhance your financial knowledge and networking opportunities.
-      </p>
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
 
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-        {events.map((event, i) => (
-          <div key={i} className="bg-white shadow-xl rounded-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
-            <div style={{ backgroundColor: '#C0003D', height: '8px' }}></div>
-            <div className="p-6">
-              <h3 className="text-xl font-bold mb-2" style={{ color: '#C0003D' }}>{event.title}</h3>
-              <div className="flex items-center text-gray-600 mb-3">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-                </svg>
-                <span>{event.date}</span>
-              </div>
-              <div className="flex items-center text-gray-600 mb-3">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-                <span>{event.time}</span>
-              </div>
-              <div className="flex items-center text-gray-600 mb-4">
-                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
-                </svg>
-                <span>{event.location}</span>
-              </div>
-              <p className="text-gray-700 mb-6">{event.description}</p>
-              <button
-                className="w-full text-white font-medium py-2 px-4 rounded-lg transition duration-300"
-                style={{ backgroundColor: '#C0003D' }}
-              >
-                Register Now
-              </button>
-            </div>
-          </div>
-        ))}
+  const exclusiveEvents = [
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1544531586-fde5298cdd40?q=80&w=2070&auto=format&fit=crop" },
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2032&auto=format&fit=crop" },
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1554224155-9ffd48f43635?q=80&w=2070&auto=format&fit=crop" }
+  ];
+
+  const financeEvents = [
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?q=80&w=2026&auto=format&fit=crop" },
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1606326608606-aa0b62935f2b?q=80&w=2070&auto=format&fit=crop" },
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1515187029135-18ee286d815b?q=80&w=2070&auto=format&fit=crop" },
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1475721027767-f4240295bd43?q=80&w=2070&auto=format&fit=crop" },
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1515168816144-b35639401023?q=80&w=2067&auto=format&fit=crop" },
+    { title: "Eget risus bibendum", desc: "Eget risus bibendum ac nam quam quam sollicitudin velit.", image: "https://images.unsplash.com/photo-1556761175-4b46a8911a31?q=80&w=2068&auto=format&fit=crop" }
+  ];
+
+  const EventCard = ({ event }) => (
+    <div className="bg-white p-4 rounded-2xl shadow-sm hover:shadow-md transition-shadow">
+      <div className="h-48 mb-4 rounded-xl overflow-hidden">
+        <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
       </div>
-    </section>
+      <h3 className="text-lg font-bold text-gray-900 mb-2">{event.title}</h3>
+      <p className="text-sm text-gray-600">{event.desc}</p>
+    </div>
+  );
+
+  return (
+    <div className="pt-20">
+      {/* Hero Carousel */}
+      <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
+        <div className="flex gap-2 mb-8">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              className={`text-lg font-bold transition-colors ${currentSlide === idx ? "text-[#C0003D]" : "text-gray-300"
+                }`}
+            >
+              {idx + 1}
+            </button>
+          ))}
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <h1 className="text-5xl md:text-6xl font-bold text-[#C0003D] mb-4">
+              {heroSlides[currentSlide].title}
+            </h1>
+            <p className="text-xl text-[#C0003D] mb-8">
+              {heroSlides[currentSlide].subtitle}
+            </p>
+            <button className="bg-[#C0003D] text-white px-8 py-3 rounded-full font-semibold hover:bg-[#a00033] transition-colors">
+              Explore Events
+            </button>
+          </div>
+          <div className="h-[400px] rounded-3xl overflow-hidden shadow-2xl">
+            <img
+              src={heroSlides[currentSlide].image}
+              alt={heroSlides[currentSlide].title}
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Exclusive Session */}
+      <section className="bg-[#FFF9F0] py-16 mb-16">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <h2 className="text-3xl font-bold text-[#C0003D] mb-2">Exclusive session</h2>
+          <p className="text-gray-600 mb-8 max-w-2xl">
+            Lorem ipsum dolor sit amet consectetur. Nec sollicitudin feugiat sed vel sit. Rhoncus nec in sollicitudin feugiat sed turpis ut arcu non risus.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {exclusiveEvents.map((event, i) => (
+              <EventCard key={i} event={event} />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Finance Section */}
+      <section className="bg-[#FFF9F0] py-16 mb-20">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <h2 className="text-3xl font-bold text-[#C0003D] mb-2">Finance</h2>
+          <p className="text-gray-600 mb-8 max-w-2xl">
+            Lorem ipsum dolor sit amet consectetur. Nec sollicitudin feugiat sed vel sit. Rhoncus nec in sollicitudin feugiat sed turpis ut arcu non risus.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {financeEvents.map((event, i) => (
+              <EventCard key={i} event={event} />
+            ))}
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }

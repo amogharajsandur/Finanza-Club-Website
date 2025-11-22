@@ -2,32 +2,48 @@ import React from 'react';
 import { FaPhotoVideo } from "react-icons/fa";
 
 function MediaSection() {
-    {/* Media | Reels | News Section */}
-
-    const mediaCards = [
-        { desc: "Lorem ipsum dolor sit amet consectetur. Nec sollicitudin feugiat sed vel sit. Rhoncus nec in." },
-        { desc: "Lorem ipsum dolor sit amet consectetur. Nec sollicitudin feugiat sed vel sit. Rhoncus nec in." },
-        { desc: "Lorem ipsum dolor sit amet consectetur. Nec sollicitudin feugiat sed vel sit. Rhoncus nec in." },
+    const mediaItems = [
+        {
+            title: "Event Highlights",
+            desc: "Recap of our recent annual finance summit.",
+            image: "https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=2069&auto=format&fit=crop"
+        },
+        {
+            title: "Reels & Bytes",
+            desc: "Quick financial tips and tricks for students.",
+            image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?q=80&w=1974&auto=format&fit=crop"
+        },
+        {
+            title: "Club News",
+            desc: "Latest announcements and upcoming opportunities.",
+            image: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?q=80&w=2070&auto=format&fit=crop"
+        }
     ];
 
     return (
         <section className="max-w-7xl mx-auto px-6 md:px-12 mb-20">
-            <div className='flex justify-center gap-2 items-center'>
-                {/* This div contains the section's Heading & Icon */}
-                <FaPhotoVideo className="w-8 h-8 text-[#C0003D]"/>
-                <h2 className="text-4xl font-bold text-[#C0003D] text-center mb-3">Media / News</h2>
+            <div className="flex flex-col items-center mb-12">
+                <h2 className="text-4xl font-bold text-[#C0003D] mb-4">Media | Reels | News</h2>
+                <p className="text-center text-gray-600 max-w-3xl">
+                    Stay connected with our latest media coverage, social media reels, and club news.
+                </p>
             </div>
-            <p className="text-center text-gray-600 mb-12">
-            Eget risus bibendum phu nam verm sollicitudin lorem. Tempor vermellis vitally velit turpis interstitium placerat. Eget facilisi mattis rhoncus feugiat placerat.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {mediaCards.map((card, index) => (
-                <div key={index} className="text-center">
-                <div className="bg-gray-300 h-64 rounded-lg mb-4"></div>
-                <p className="text-sm text-gray-700 leading-relaxed">{card.desc}</p>
-                </div>
-            ))}
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                {mediaItems.map((item, index) => (
+                    <div key={index} className="group cursor-pointer">
+                        <div className="relative h-64 rounded-2xl overflow-hidden mb-4 shadow-md group-hover:shadow-xl transition-all duration-300">
+                            <img
+                                src={item.image}
+                                alt={item.title}
+                                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            />
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+                        </div>
+                        <h3 className="text-xl font-bold text-[#C0003D] mb-2 group-hover:text-[#a00033] transition-colors">{item.title}</h3>
+                        <p className="text-gray-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                ))}
             </div>
         </section>
     );
